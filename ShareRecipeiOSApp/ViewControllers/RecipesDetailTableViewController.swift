@@ -8,21 +8,78 @@
 import UIKit
 
 class RecipesDetailTableViewController: UITableViewController {
-
+    // MARK: - Properties
+    var recipe: Recipe {
+        didSet {
+            updateRecipeView()
+        }
+    }
+    
+    var user: User? {
+        didSet {
+            updateRecipeView()
+        }
+    }
+    
+    // MARK: - Initializers
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) is not implemented")
+    }
+    
+    init?(coder: NSCoder, recipe: Recipe) {
+        self.recipe = recipe
+        super.init(coder: coder)
+    }
+    
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        getRecipeData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        getRecipeData()
+    }
+    
+    // MARK: - Model Loading
+    func getRecipeData() {
+        guard let id = recipe.id else {
+            return
+        }
+        
+        let recipeDetailRequest = RecipeRequest(recipeID: id)
+        recipeDetailRequest.getUser { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.user = user
+            case .failure:
+                let message = "There was an error getting the recipe's user"
+                ErrorPresenter.showError(message: message, on: self)
+            }
+        }
+    }
+    
+    func updateRecipeView() {
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditRecipeSegue" {
+            guard let destination = segue.destination as? CreateRecipeTableViewController else {
+                return
+            }
+            destination.selectedUser = user
+            destination.recipe = recipe
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 0
     }
 
