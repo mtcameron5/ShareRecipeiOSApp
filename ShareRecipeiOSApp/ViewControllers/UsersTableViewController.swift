@@ -10,7 +10,7 @@ import UIKit
 class UsersTableViewController: UITableViewController {
     // MARK: - Properties
     var users: [User] = []
-    var usersRequest = ResourceRequest<User>(resourcePath: "user")
+    var usersRequest = ResourceRequest<User>(resourcePath: "users")
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {

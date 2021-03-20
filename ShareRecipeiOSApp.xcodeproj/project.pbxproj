@@ -94,10 +94,10 @@
 			children = (
 				B17CF32926017172002F934C /* RecipesTableViewController.swift */,
 				B1F459D62601E0FE00D269CC /* CreateRecipeTableViewController.swift */,
+				B1F459DD2601FD4200D269CC /* RecipesDetailTableViewController.swift */,
 				B17CF32626017164002F934C /* UsersTableViewController.swift */,
 				B1F459D12601BD9700D269CC /* CreateUserTableViewController.swift */,
 				B1F459DA2601E77E00D269CC /* SelectUserTableViewController.swift */,
-				B1F459DD2601FD4200D269CC /* RecipesDetailTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -368,7 +368,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HB53MMB2TX;
-				INFOPLIST_FILE = ShareRecipeiOSApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ShareRecipeiOSApp/Project Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -387,7 +387,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HB53MMB2TX;
-				INFOPLIST_FILE = ShareRecipeiOSApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ShareRecipeiOSApp/Project Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

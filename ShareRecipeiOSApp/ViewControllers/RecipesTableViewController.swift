@@ -43,7 +43,7 @@ class RecipesTableViewController: UITableViewController {
           
             switch result {
             case .failure:
-                ErrorPresenter.showError(message: "There was an error getting the recipes", on: self)
+                ErrorPresenter.showError(message: "There was a problem getting the recipes", on: self)
             case .success(let recipes):
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
@@ -53,18 +53,17 @@ class RecipesTableViewController: UITableViewController {
             }
         }
     }
+    
     // MARK: - Table view data source
-
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recipes.count
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath)
         let recipe = recipes[indexPath.row]
         cell.textLabel?.text = recipe.name
         return cell
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipes.count
     }
 
 }
