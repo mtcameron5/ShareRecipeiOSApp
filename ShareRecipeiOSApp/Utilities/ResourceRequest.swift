@@ -18,6 +18,7 @@ struct ResourceRequest<ResourceType> where ResourceType: Codable {
         print(resourceURL)
         self.resourceURL = resourceURL.appendingPathComponent(resourcePath)
         print(self.resourceURL)
+        print(self.resourceURL.appendingPathComponent("BigDog").appendingPathComponent("BigFish"))
     }
     
     func getAll(completion: @escaping (Result<[ResourceType], ResourceRequestError>) -> Void) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B177A7032607326100581013 /* CreateRecipeIngredientsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177A7022607326100581013 /* CreateRecipeIngredientsListTableViewController.swift */; };
 		B17CF30926016D50002F934C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17CF30826016D50002F934C /* AppDelegate.swift */; };
 		B17CF30B26016D50002F934C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17CF30A26016D50002F934C /* SceneDelegate.swift */; };
 		B17CF31026016D50002F934C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B17CF30E26016D50002F934C /* Main.storyboard */; };
@@ -25,9 +26,13 @@
 		B1F459D72601E0FE00D269CC /* CreateRecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F459D62601E0FE00D269CC /* CreateRecipeTableViewController.swift */; };
 		B1F459DB2601E77E00D269CC /* SelectUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F459DA2601E77E00D269CC /* SelectUserTableViewController.swift */; };
 		B1F459DE2601FD4200D269CC /* RecipesDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F459DD2601FD4200D269CC /* RecipesDetailTableViewController.swift */; };
+		B1F459E82605C13700D269CC /* ShowRecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F459E72605C13700D269CC /* ShowRecipeCell.xib */; };
+		B1F459EB2605C48F00D269CC /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F459EA2605C48F00D269CC /* RatingControl.swift */; };
+		B1F459F02605DCA000D269CC /* ShowRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F459EF2605DC9F00D269CC /* ShowRecipeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B177A7022607326100581013 /* CreateRecipeIngredientsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeIngredientsListTableViewController.swift; sourceTree = "<group>"; };
 		B17CF30526016D50002F934C /* ShareRecipeiOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareRecipeiOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B17CF30826016D50002F934C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B17CF30A26016D50002F934C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +53,9 @@
 		B1F459D62601E0FE00D269CC /* CreateRecipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeTableViewController.swift; sourceTree = "<group>"; };
 		B1F459DA2601E77E00D269CC /* SelectUserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserTableViewController.swift; sourceTree = "<group>"; };
 		B1F459DD2601FD4200D269CC /* RecipesDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesDetailTableViewController.swift; sourceTree = "<group>"; };
+		B1F459E72605C13700D269CC /* ShowRecipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowRecipeCell.xib; sourceTree = "<group>"; };
+		B1F459EA2605C48F00D269CC /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		B1F459EF2605DC9F00D269CC /* ShowRecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRecipeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				B17CF30E26016D50002F934C /* Main.storyboard */,
+				B1F459E62605C11600D269CC /* Custom Table Cells */,
 				B17CF31E26016D6E002F934C /* Models */,
 				B17CF31D26016D64002F934C /* ViewControllers */,
 				B17CF31F26016D75002F934C /* Utilities */,
@@ -94,6 +103,7 @@
 			children = (
 				B17CF32926017172002F934C /* RecipesTableViewController.swift */,
 				B1F459D62601E0FE00D269CC /* CreateRecipeTableViewController.swift */,
+				B177A7022607326100581013 /* CreateRecipeIngredientsListTableViewController.swift */,
 				B1F459DD2601FD4200D269CC /* RecipesDetailTableViewController.swift */,
 				B17CF32626017164002F934C /* UsersTableViewController.swift */,
 				B1F459D12601BD9700D269CC /* CreateUserTableViewController.swift */,
@@ -128,11 +138,21 @@
 			children = (
 				B17CF30826016D50002F934C /* AppDelegate.swift */,
 				B17CF30A26016D50002F934C /* SceneDelegate.swift */,
-				B17CF31126016D52002F934C /* Assets.xcassets */,
 				B17CF31326016D52002F934C /* LaunchScreen.storyboard */,
 				B17CF31626016D52002F934C /* Info.plist */,
+				B17CF31126016D52002F934C /* Assets.xcassets */,
 			);
 			path = "Project Files";
+			sourceTree = "<group>";
+		};
+		B1F459E62605C11600D269CC /* Custom Table Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B1F459E72605C13700D269CC /* ShowRecipeCell.xib */,
+				B1F459EF2605DC9F00D269CC /* ShowRecipeCell.swift */,
+				B1F459EA2605C48F00D269CC /* RatingControl.swift */,
+			);
+			path = "Custom Table Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1F459E82605C13700D269CC /* ShowRecipeCell.xib in Resources */,
 				B17CF31526016D52002F934C /* LaunchScreen.storyboard in Resources */,
 				B17CF31226016D52002F934C /* Assets.xcassets in Resources */,
 				B17CF31026016D50002F934C /* Main.storyboard in Resources */,
@@ -208,8 +229,10 @@
 				B1F459C9260193E600D269CC /* ErrorPresenter.swift in Sources */,
 				B17CF333260173D6002F934C /* ResourceRequest.swift in Sources */,
 				B1F459DB2601E77E00D269CC /* SelectUserTableViewController.swift in Sources */,
+				B1F459F02605DCA000D269CC /* ShowRecipeCell.swift in Sources */,
 				B1F459CF2601A84200D269CC /* CreateRecipeData.swift in Sources */,
 				B1F459DE2601FD4200D269CC /* RecipesDetailTableViewController.swift in Sources */,
+				B1F459EB2605C48F00D269CC /* RatingControl.swift in Sources */,
 				B17CF30926016D50002F934C /* AppDelegate.swift in Sources */,
 				B17CF32726017164002F934C /* UsersTableViewController.swift in Sources */,
 				B1F459CC2601A75000D269CC /* RecipeRequest.swift in Sources */,
@@ -217,6 +240,7 @@
 				B17CF30B26016D50002F934C /* SceneDelegate.swift in Sources */,
 				B17CF32A26017172002F934C /* RecipesTableViewController.swift in Sources */,
 				B1F459D72601E0FE00D269CC /* CreateRecipeTableViewController.swift in Sources */,
+				B177A7032607326100581013 /* CreateRecipeIngredientsListTableViewController.swift in Sources */,
 				B1F459D22601BD9700D269CC /* CreateUserTableViewController.swift in Sources */,
 				B1F459C62601923000D269CC /* ResourceRequestError.swift in Sources */,
 				B17CF3302601719E002F934C /* User.swift in Sources */,

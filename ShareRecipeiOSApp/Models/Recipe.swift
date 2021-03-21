@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class Recipe: Codable {
     var id: UUID?
@@ -16,6 +17,7 @@ final class Recipe: Codable {
     var servings: Int
     var cookTime: String
     var prepTime: String
+//    var finishedProduct: UIImage?
     
     init(userID: UUID, name: String, ingredients: [String], directions: [String], servings: Int, cookTime: String, prepTime: String) {
         self.user = RecipeUser(id: userID)
@@ -25,7 +27,12 @@ final class Recipe: Codable {
         self.servings = servings
         self.cookTime = cookTime
         self.prepTime = prepTime
+//        self.finishedProduct = finishedProduct
     }
+    
+//    required init(from decoder: Decoder) throws {
+//        <#statements#>
+//    }
     
 }
 

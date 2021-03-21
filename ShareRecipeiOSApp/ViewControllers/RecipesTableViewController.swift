@@ -16,7 +16,8 @@ class RecipesTableViewController: UITableViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let cellNib = UINib(nibName: "ShowRecipeCell", bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: "ShowRecipeCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,6 +28,7 @@ class RecipesTableViewController: UITableViewController {
     // MARK: - Navigation
     @IBSegueAction func makeRecipeDetailTableViewController(_ coder: NSCoder) -> RecipesDetailTableViewController? {
         guard let indexPath = tableView.indexPathForSelectedRow else {
+            print("error")
             return nil
         }
         let recipe = recipes[indexPath.row]
@@ -60,10 +62,14 @@ class RecipesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ShowRecipeCell", for: indexPath) as! ShowRecipeCell
         let recipe = recipes[indexPath.row]
-        cell.textLabel?.text = recipe.name
+        cell.recipeNameLabel.text = recipe.name
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "RecipesToRecipeDetail", sender: nil)
     }
 
 }
