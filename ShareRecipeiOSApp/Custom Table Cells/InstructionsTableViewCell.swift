@@ -1,17 +1,15 @@
 //
-//  ShowRecipeCellTableViewCell.swift
+//  InstructionsTableViewCell.swift
 //  ShareRecipeiOSApp
 //
-//  Created by Cameron Augustine on 3/20/21.
+//  Created by Cameron Augustine on 3/21/21.
 //
 
 import UIKit
 
-class ShowRecipeCell: UITableViewCell {
-    
-    @IBOutlet weak var recipeNameLabel: UILabel!
-    @IBOutlet weak var recipeImage: UIImageView!
-    @IBOutlet weak var ratingControl: RatingControl!
+class InstructionsTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var instructionsText: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,5 +21,5 @@ class ShowRecipeCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

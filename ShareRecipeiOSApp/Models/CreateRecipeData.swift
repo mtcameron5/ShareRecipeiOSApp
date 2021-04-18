@@ -7,7 +7,6 @@
 import Foundation
 
 struct CreateRecipeData: Codable {
-    var id: UUID?
     let userID: UUID
     var name: String
     var ingredients: [String]

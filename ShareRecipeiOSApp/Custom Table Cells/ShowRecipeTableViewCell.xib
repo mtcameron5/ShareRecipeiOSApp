@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShowRecipeTableViewCell" rowHeight="189" id="KGk-i7-Jjw" customClass="ShowRecipeTableViewCell" customModule="ShareRecipeiOSApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="397" height="189"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="397" height="189"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chicken_kabob_-_4972704036_600" translatesAutoresizingMaskIntoConstraints="NO" id="WuM-ow-itU">
+                        <rect key="frame" x="7" y="9" width="180" height="174"/>
+                        <color key="tintColor" systemColor="systemGray2Color"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="180" id="lqd-lj-BDj"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chicken Curry" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vx4-y8-Hl5">
+                        <rect key="frame" x="202" y="5" width="165" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="33" id="UYE-ib-2wI"/>
+                            <constraint firstAttribute="width" constant="165" id="bWK-5v-7Fu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.9 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ws-if-JPi">
+                        <rect key="frame" x="202" y="48" width="30.5" height="21.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" systemColor="systemBackgroundColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKk-D6-LAh">
+                        <rect key="frame" x="317" y="123" width="47" height="40"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <state key="normal" image="heart" catalog="system">
+                            <color key="titleColor" systemColor="systemOrangeColor"/>
+                            <color key="titleShadowColor" systemColor="systemOrangeColor"/>
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="32" scale="large" weight="light"/>
+                        </state>
+                        <state key="highlighted" image="heart.fill" catalog="system"/>
+                        <connections>
+                            <action selector="saveButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Vca-E6-wZJ"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Saves" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZv-EB-BU1">
+                        <rect key="frame" x="297.5" y="173" width="63.5" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" systemColor="systemOrangeColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="WuM-ow-itU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="75b-ao-yjb"/>
+                    <constraint firstItem="aKk-D6-LAh" firstAttribute="top" secondItem="Vx4-y8-Hl5" secondAttribute="bottom" constant="85" id="GaM-zq-WpA"/>
+                    <constraint firstAttribute="bottom" secondItem="WuM-ow-itU" secondAttribute="bottom" constant="6" id="Igr-GJ-qFD"/>
+                    <constraint firstItem="Vx4-y8-Hl5" firstAttribute="leading" secondItem="WuM-ow-itU" secondAttribute="trailing" constant="15" id="NDo-Bv-Z2S"/>
+                    <constraint firstItem="Vx4-y8-Hl5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Pcv-ow-5sF"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="RZv-EB-BU1" secondAttribute="trailing" constant="16" id="R3f-pS-grw"/>
+                    <constraint firstItem="WuM-ow-itU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="UQs-4w-eMA"/>
+                    <constraint firstItem="1ws-if-JPi" firstAttribute="top" secondItem="Vx4-y8-Hl5" secondAttribute="bottom" constant="10" id="dOv-nk-Lt2"/>
+                    <constraint firstItem="1ws-if-JPi" firstAttribute="leading" secondItem="WuM-ow-itU" secondAttribute="trailing" constant="15" id="mxh-2t-XbD"/>
+                    <constraint firstItem="RZv-EB-BU1" firstAttribute="top" secondItem="aKk-D6-LAh" secondAttribute="bottom" constant="10" id="szW-N7-6l6"/>
+                    <constraint firstAttribute="trailing" secondItem="aKk-D6-LAh" secondAttribute="trailing" constant="33" id="ta1-0u-SXf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="recipeImage" destination="WuM-ow-itU" id="Ti5-nM-uxA"/>
+                <outlet property="recipeLikesLabel" destination="RZv-EB-BU1" id="faY-IK-AB3"/>
+                <outlet property="recipeNameLabel" destination="Vx4-y8-Hl5" id="7nT-eG-3oU"/>
+                <outlet property="recipeRating" destination="1ws-if-JPi" id="bzm-mx-ZW6"/>
+                <outlet property="saveButton" destination="aKk-D6-LAh" id="meN-Ly-TGt"/>
+            </connections>
+            <point key="canvasLocation" x="148.55072463768118" y="119.53125"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="chicken_kabob_-_4972704036_600" width="300" height="200"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -9,16 +9,15 @@ import Foundation
 
 struct ResourceRequest<ResourceType> where ResourceType: Codable {
     let baseURL = "http://localhost:8080/api/"
-    let resourceURL: URL
+    var resourceURL: URL
     
     init(resourcePath: String) {
+        
         guard let resourceURL = URL(string: baseURL) else {
             fatalError("Failed to convert baseURL to a URL.")
         }
-        print(resourceURL)
         self.resourceURL = resourceURL.appendingPathComponent(resourcePath)
-        print(self.resourceURL)
-        print(self.resourceURL.appendingPathComponent("BigDog").appendingPathComponent("BigFish"))
+        
     }
     
     func getAll(completion: @escaping (Result<[ResourceType], ResourceRequestError>) -> Void) {
@@ -40,14 +39,28 @@ struct ResourceRequest<ResourceType> where ResourceType: Codable {
     
     func save<CreateType>(_ saveData: CreateType, completion: @escaping (Result<ResourceType, ResourceRequestError>) -> Void) where CreateType: Codable {
         do {
+            guard let token = Auth().token else {
+                Auth().logout()
+                return
+            }
+            
             var urlRequest = URLRequest(url: resourceURL)
             urlRequest.httpMethod = "POST"
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             urlRequest.httpBody = try JSONEncoder().encode(saveData)
             
             let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, response, _ in
-                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200, let jsonData = data
-                else {
+                
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    completion(.failure(.noData))
+                    return
+                }
+                
+                guard httpResponse.statusCode == 200, let jsonData = data else {
+                    if httpResponse.statusCode == 401 {
+                        Auth().logout()
+                    }
                     completion(.failure(.noData))
                     return
                 }
@@ -63,6 +76,15 @@ struct ResourceRequest<ResourceType> where ResourceType: Codable {
         } catch {
             completion(.failure(.encodingError))
         }
+    }
+    
+    mutating func delete(id: UUID) {
+        let deleteResourceURL = resourceURL.appendingPathComponent(id.uuidString)
+        
+        var deleteResourceRequest = URLRequest(url: deleteResourceURL)
+        deleteResourceRequest.httpMethod = "DELETE"
+        let dataTask = URLSession.shared.dataTask(with: deleteResourceRequest)
+        dataTask.resume()
     }
     
 

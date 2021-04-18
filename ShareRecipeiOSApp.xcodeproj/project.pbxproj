@@ -7,7 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B122B6382611536C00161985 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122B6372611536C00161985 /* Auth.swift */; };
+		B122B63B261155D700161985 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122B63A261155D700161985 /* Token.swift */; };
+		B122B63E261172A500161985 /* CreateUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122B63D261172A500161985 /* CreateUserData.swift */; };
+		B122B641261173D600161985 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122B640261173D600161985 /* Category.swift */; };
+		B122B6442612388B00161985 /* Auth+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122B6432612388B00161985 /* Auth+Keychain.swift */; };
+		B122B6472612628F00161985 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122B6462612628F00161985 /* LoginTableViewController.swift */; };
+		B122B650261DD1DF00161985 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122B64F261DD1DF00161985 /* BaseTableViewController.swift */; };
+		B122B654261F531700161985 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122B653261F531700161985 /* ProfileTableViewController.swift */; };
+		B122B657261F578D00161985 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122B656261F578D00161985 /* UserRequest.swift */; };
+		B16EF4282608E15F00DC285E /* CreateRecipeInstructionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16EF4272608E15F00DC285E /* CreateRecipeInstructionsTableViewController.swift */; };
 		B177A7032607326100581013 /* CreateRecipeIngredientsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177A7022607326100581013 /* CreateRecipeIngredientsListTableViewController.swift */; };
+		B177A70B2607490B00581013 /* GenericTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177A7092607490B00581013 /* GenericTableViewCell.swift */; };
+		B177A70C2607490B00581013 /* GenericTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B177A70A2607490B00581013 /* GenericTableViewCell.xib */; };
+		B177A7182607668300581013 /* InstructionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177A7162607668300581013 /* InstructionsTableViewCell.swift */; };
+		B177A7192607668300581013 /* InstructionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B177A7172607668300581013 /* InstructionsTableViewCell.xib */; };
+		B177A71D2607A27B00581013 /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177A71C2607A27B00581013 /* TextFieldDelegate.swift */; };
+		B177A7212607DBFC00581013 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177A7202607DBFC00581013 /* ViewControllerExtension.swift */; };
+		B177A7282608AA7700581013 /* ShowRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177A7262608AA7700581013 /* ShowRecipeTableViewCell.swift */; };
+		B177A7292608AA7700581013 /* ShowRecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B177A7272608AA7700581013 /* ShowRecipeTableViewCell.xib */; };
 		B17CF30926016D50002F934C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17CF30826016D50002F934C /* AppDelegate.swift */; };
 		B17CF30B26016D50002F934C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17CF30A26016D50002F934C /* SceneDelegate.swift */; };
 		B17CF31026016D50002F934C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B17CF30E26016D50002F934C /* Main.storyboard */; };
@@ -18,6 +36,7 @@
 		B17CF32D26017195002F934C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17CF32C26017195002F934C /* Recipe.swift */; };
 		B17CF3302601719E002F934C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17CF32F2601719E002F934C /* User.swift */; };
 		B17CF333260173D6002F934C /* ResourceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17CF332260173D6002F934C /* ResourceRequest.swift */; };
+		B186373B2624ECD40011E9E0 /* SavedRecipesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186373A2624ECD40011E9E0 /* SavedRecipesTableViewController.swift */; };
 		B1F459C62601923000D269CC /* ResourceRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F459C52601923000D269CC /* ResourceRequestError.swift */; };
 		B1F459C9260193E600D269CC /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F459C8260193E600D269CC /* ErrorPresenter.swift */; };
 		B1F459CC2601A75000D269CC /* RecipeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F459CB2601A75000D269CC /* RecipeRequest.swift */; };
@@ -26,13 +45,29 @@
 		B1F459D72601E0FE00D269CC /* CreateRecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F459D62601E0FE00D269CC /* CreateRecipeTableViewController.swift */; };
 		B1F459DB2601E77E00D269CC /* SelectUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F459DA2601E77E00D269CC /* SelectUserTableViewController.swift */; };
 		B1F459DE2601FD4200D269CC /* RecipesDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F459DD2601FD4200D269CC /* RecipesDetailTableViewController.swift */; };
-		B1F459E82605C13700D269CC /* ShowRecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F459E72605C13700D269CC /* ShowRecipeCell.xib */; };
 		B1F459EB2605C48F00D269CC /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F459EA2605C48F00D269CC /* RatingControl.swift */; };
-		B1F459F02605DCA000D269CC /* ShowRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F459EF2605DC9F00D269CC /* ShowRecipeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B122B6372611536C00161985 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		B122B63A261155D700161985 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		B122B63D261172A500161985 /* CreateUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserData.swift; sourceTree = "<group>"; };
+		B122B640261173D600161985 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		B122B6432612388B00161985 /* Auth+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Auth+Keychain.swift"; sourceTree = "<group>"; };
+		B122B6462612628F00161985 /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
+		B122B64F261DD1DF00161985 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		B122B653261F531700161985 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		B122B656261F578D00161985 /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		B16EF4272608E15F00DC285E /* CreateRecipeInstructionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeInstructionsTableViewController.swift; sourceTree = "<group>"; };
 		B177A7022607326100581013 /* CreateRecipeIngredientsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeIngredientsListTableViewController.swift; sourceTree = "<group>"; };
+		B177A7092607490B00581013 /* GenericTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewCell.swift; sourceTree = "<group>"; };
+		B177A70A2607490B00581013 /* GenericTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenericTableViewCell.xib; sourceTree = "<group>"; };
+		B177A7162607668300581013 /* InstructionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsTableViewCell.swift; sourceTree = "<group>"; };
+		B177A7172607668300581013 /* InstructionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionsTableViewCell.xib; sourceTree = "<group>"; };
+		B177A71C2607A27B00581013 /* TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
+		B177A7202607DBFC00581013 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		B177A7262608AA7700581013 /* ShowRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRecipeTableViewCell.swift; sourceTree = "<group>"; };
+		B177A7272608AA7700581013 /* ShowRecipeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowRecipeTableViewCell.xib; sourceTree = "<group>"; };
 		B17CF30526016D50002F934C /* ShareRecipeiOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareRecipeiOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B17CF30826016D50002F934C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B17CF30A26016D50002F934C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +80,7 @@
 		B17CF32C26017195002F934C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		B17CF32F2601719E002F934C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B17CF332260173D6002F934C /* ResourceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceRequest.swift; sourceTree = "<group>"; };
+		B186373A2624ECD40011E9E0 /* SavedRecipesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipesTableViewController.swift; sourceTree = "<group>"; };
 		B1F459C52601923000D269CC /* ResourceRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceRequestError.swift; sourceTree = "<group>"; };
 		B1F459C8260193E600D269CC /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 		B1F459CB2601A75000D269CC /* RecipeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRequest.swift; sourceTree = "<group>"; };
@@ -53,9 +89,7 @@
 		B1F459D62601E0FE00D269CC /* CreateRecipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeTableViewController.swift; sourceTree = "<group>"; };
 		B1F459DA2601E77E00D269CC /* SelectUserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserTableViewController.swift; sourceTree = "<group>"; };
 		B1F459DD2601FD4200D269CC /* RecipesDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesDetailTableViewController.swift; sourceTree = "<group>"; };
-		B1F459E72605C13700D269CC /* ShowRecipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowRecipeCell.xib; sourceTree = "<group>"; };
 		B1F459EA2605C48F00D269CC /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
-		B1F459EF2605DC9F00D269CC /* ShowRecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRecipeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +103,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B177A71B2607A26700581013 /* Custom Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				B177A71C2607A27B00581013 /* TextFieldDelegate.swift */,
+			);
+			path = "Custom Delegates";
+			sourceTree = "<group>";
+		};
 		B17CF2FC26016D50002F934C = {
 			isa = PBXGroup;
 			children = (
@@ -88,28 +130,34 @@
 		B17CF30726016D50002F934C /* ShareRecipeiOSApp */ = {
 			isa = PBXGroup;
 			children = (
+				B177A71B2607A26700581013 /* Custom Delegates */,
 				B17CF30E26016D50002F934C /* Main.storyboard */,
-				B1F459E62605C11600D269CC /* Custom Table Cells */,
 				B17CF31E26016D6E002F934C /* Models */,
-				B17CF31D26016D64002F934C /* ViewControllers */,
+				B17CF31D26016D64002F934C /* View Controllers */,
+				B1F459E62605C11600D269CC /* Custom Table Cells */,
 				B17CF31F26016D75002F934C /* Utilities */,
 				B17CF32026016D7B002F934C /* Project Files */,
 			);
 			path = ShareRecipeiOSApp;
 			sourceTree = "<group>";
 		};
-		B17CF31D26016D64002F934C /* ViewControllers */ = {
+		B17CF31D26016D64002F934C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				B17CF32926017172002F934C /* RecipesTableViewController.swift */,
 				B1F459D62601E0FE00D269CC /* CreateRecipeTableViewController.swift */,
 				B177A7022607326100581013 /* CreateRecipeIngredientsListTableViewController.swift */,
+				B16EF4272608E15F00DC285E /* CreateRecipeInstructionsTableViewController.swift */,
 				B1F459DD2601FD4200D269CC /* RecipesDetailTableViewController.swift */,
 				B17CF32626017164002F934C /* UsersTableViewController.swift */,
 				B1F459D12601BD9700D269CC /* CreateUserTableViewController.swift */,
 				B1F459DA2601E77E00D269CC /* SelectUserTableViewController.swift */,
+				B122B6462612628F00161985 /* LoginTableViewController.swift */,
+				B122B64F261DD1DF00161985 /* BaseTableViewController.swift */,
+				B122B653261F531700161985 /* ProfileTableViewController.swift */,
+				B186373A2624ECD40011E9E0 /* SavedRecipesTableViewController.swift */,
 			);
-			path = ViewControllers;
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		B17CF31E26016D6E002F934C /* Models */ = {
@@ -118,6 +166,9 @@
 				B17CF32F2601719E002F934C /* User.swift */,
 				B17CF32C26017195002F934C /* Recipe.swift */,
 				B1F459CE2601A84200D269CC /* CreateRecipeData.swift */,
+				B122B63A261155D700161985 /* Token.swift */,
+				B122B63D261172A500161985 /* CreateUserData.swift */,
+				B122B640261173D600161985 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -125,10 +176,14 @@
 		B17CF31F26016D75002F934C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B177A7202607DBFC00581013 /* ViewControllerExtension.swift */,
 				B17CF332260173D6002F934C /* ResourceRequest.swift */,
 				B1F459C52601923000D269CC /* ResourceRequestError.swift */,
 				B1F459C8260193E600D269CC /* ErrorPresenter.swift */,
 				B1F459CB2601A75000D269CC /* RecipeRequest.swift */,
+				B122B656261F578D00161985 /* UserRequest.swift */,
+				B122B6372611536C00161985 /* Auth.swift */,
+				B122B6432612388B00161985 /* Auth+Keychain.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -148,9 +203,13 @@
 		B1F459E62605C11600D269CC /* Custom Table Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B1F459E72605C13700D269CC /* ShowRecipeCell.xib */,
-				B1F459EF2605DC9F00D269CC /* ShowRecipeCell.swift */,
+				B177A7272608AA7700581013 /* ShowRecipeTableViewCell.xib */,
+				B177A7262608AA7700581013 /* ShowRecipeTableViewCell.swift */,
 				B1F459EA2605C48F00D269CC /* RatingControl.swift */,
+				B177A7092607490B00581013 /* GenericTableViewCell.swift */,
+				B177A70A2607490B00581013 /* GenericTableViewCell.xib */,
+				B177A7162607668300581013 /* InstructionsTableViewCell.swift */,
+				B177A7172607668300581013 /* InstructionsTableViewCell.xib */,
 			);
 			path = "Custom Table Cells";
 			sourceTree = "<group>";
@@ -212,7 +271,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1F459E82605C13700D269CC /* ShowRecipeCell.xib in Resources */,
+				B177A70C2607490B00581013 /* GenericTableViewCell.xib in Resources */,
+				B177A7192607668300581013 /* InstructionsTableViewCell.xib in Resources */,
+				B177A7292608AA7700581013 /* ShowRecipeTableViewCell.xib in Resources */,
 				B17CF31526016D52002F934C /* LaunchScreen.storyboard in Resources */,
 				B17CF31226016D52002F934C /* Assets.xcassets in Resources */,
 				B17CF31026016D50002F934C /* Main.storyboard in Resources */,
@@ -227,23 +288,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1F459C9260193E600D269CC /* ErrorPresenter.swift in Sources */,
+				B122B6442612388B00161985 /* Auth+Keychain.swift in Sources */,
+				B122B657261F578D00161985 /* UserRequest.swift in Sources */,
 				B17CF333260173D6002F934C /* ResourceRequest.swift in Sources */,
 				B1F459DB2601E77E00D269CC /* SelectUserTableViewController.swift in Sources */,
-				B1F459F02605DCA000D269CC /* ShowRecipeCell.swift in Sources */,
+				B122B650261DD1DF00161985 /* BaseTableViewController.swift in Sources */,
 				B1F459CF2601A84200D269CC /* CreateRecipeData.swift in Sources */,
+				B122B654261F531700161985 /* ProfileTableViewController.swift in Sources */,
+				B122B6472612628F00161985 /* LoginTableViewController.swift in Sources */,
 				B1F459DE2601FD4200D269CC /* RecipesDetailTableViewController.swift in Sources */,
+				B122B6382611536C00161985 /* Auth.swift in Sources */,
 				B1F459EB2605C48F00D269CC /* RatingControl.swift in Sources */,
+				B177A70B2607490B00581013 /* GenericTableViewCell.swift in Sources */,
 				B17CF30926016D50002F934C /* AppDelegate.swift in Sources */,
+				B177A7282608AA7700581013 /* ShowRecipeTableViewCell.swift in Sources */,
+				B122B63B261155D700161985 /* Token.swift in Sources */,
 				B17CF32726017164002F934C /* UsersTableViewController.swift in Sources */,
 				B1F459CC2601A75000D269CC /* RecipeRequest.swift in Sources */,
+				B186373B2624ECD40011E9E0 /* SavedRecipesTableViewController.swift in Sources */,
+				B16EF4282608E15F00DC285E /* CreateRecipeInstructionsTableViewController.swift in Sources */,
 				B17CF32D26017195002F934C /* Recipe.swift in Sources */,
 				B17CF30B26016D50002F934C /* SceneDelegate.swift in Sources */,
 				B17CF32A26017172002F934C /* RecipesTableViewController.swift in Sources */,
+				B122B63E261172A500161985 /* CreateUserData.swift in Sources */,
 				B1F459D72601E0FE00D269CC /* CreateRecipeTableViewController.swift in Sources */,
 				B177A7032607326100581013 /* CreateRecipeIngredientsListTableViewController.swift in Sources */,
 				B1F459D22601BD9700D269CC /* CreateUserTableViewController.swift in Sources */,
+				B177A71D2607A27B00581013 /* TextFieldDelegate.swift in Sources */,
+				B177A7212607DBFC00581013 /* ViewControllerExtension.swift in Sources */,
 				B1F459C62601923000D269CC /* ResourceRequestError.swift in Sources */,
+				B177A7182607668300581013 /* InstructionsTableViewCell.swift in Sources */,
 				B17CF3302601719E002F934C /* User.swift in Sources */,
+				B122B641261173D600161985 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@ enum ErrorPresenter {
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: dismissAction))
+            alertController.view.tintColor = UIColor.orange
             weakViewController?.present(alertController, animated: true)
         }
     }

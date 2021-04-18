@@ -11,4 +11,6 @@ enum ResourceRequestError: Error {
     case noData
     case decodingError
     case encodingError
+    case tokenError
+    case badResponse
 }

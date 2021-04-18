@@ -56,6 +56,15 @@ class UsersTableViewController: UITableViewController {
         cell.detailTextLabel?.text = user.username
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let user = users[indexPath.row]
+        if let userID = user.id {
+            usersRequest.delete(id: userID)
+        }
+        users.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    }
 
 
 }

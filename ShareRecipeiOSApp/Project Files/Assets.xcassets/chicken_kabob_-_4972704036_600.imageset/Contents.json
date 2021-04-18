@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "chicken_kabob_-_4972704036_600.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "chicken_kabob_-_4972704036_600-1.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "chicken_kabob_-_4972704036_600-2.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
