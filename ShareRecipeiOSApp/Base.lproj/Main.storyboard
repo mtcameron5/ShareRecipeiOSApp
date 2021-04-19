@@ -668,7 +668,7 @@
                                     <constraint firstAttribute="width" constant="374" id="Dz2-g5-7FX"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Toh-CN-uaD">
@@ -682,6 +682,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginPressed:" destination="dPa-vO-Ec0" eventType="touchUpInside" id="FdG-eK-YDo"/>
+                                    <segue destination="vcU-PS-06O" kind="show" identifier="SavedRecipesToLoginScreen" id="tQn-eN-ejd"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYn-pg-H4s">
@@ -730,6 +731,7 @@
                     <navigationItem key="navigationItem" id="f4d-cP-yIL"/>
                     <connections>
                         <outlet property="loginButton" destination="Toh-CN-uaD" id="y0t-a6-XAV"/>
+                        <outlet property="noSavesYetLabel" destination="m4n-uL-TES" id="VNu-dC-rgq"/>
                         <outlet property="notLoggedInTextView" destination="2ZF-PH-ZG4" id="bzf-7n-ViS"/>
                         <outlet property="tableView" destination="udW-hb-4n3" id="E8I-YR-Pgx"/>
                     </connections>
@@ -1019,6 +1021,13 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="TZ5-v4-NFk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Aks-ZH-Dww">
+                            <rect key="frame" x="0.0" y="516" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Log Out">
+                                <color key="titleColor" systemColor="systemRedColor"/>
+                            </state>
+                        </button>
                         <sections>
                             <tableViewSection headerTitle="Recipes You're Working On" id="Gsk-uH-YTX">
                                 <cells>
@@ -1128,36 +1137,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="wea-Nv-nsv">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GenericTableViewCell" rowHeight="43.5" id="LkY-gb-uyo" customClass="GenericTableViewCell" customModule="ShareRecipeiOSApp" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="534" width="374" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LkY-gb-uyo" id="Uz6-bq-w4e">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgh-oo-YxH">
-                                                    <rect key="frame" x="15" y="6" width="61" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <state key="normal" title="Log Out">
-                                                        <color key="titleColor" systemColor="systemPinkColor"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="logout:" destination="LmV-Zv-y7a" eventType="touchUpInside" id="Inb-J0-L5I"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="pgh-oo-YxH" firstAttribute="top" secondItem="Uz6-bq-w4e" secondAttribute="top" constant="6" id="7xS-Jv-Fj2"/>
-                                                <constraint firstItem="pgh-oo-YxH" firstAttribute="leading" secondItem="Uz6-bq-w4e" secondAttribute="leading" constant="15" id="G8v-zF-Dkz"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pgh-oo-YxH" secondAttribute="trailing" constant="20" symbolic="YES" id="Lhk-Oc-2od"/>
-                                                <constraint firstAttribute="bottom" secondItem="pgh-oo-YxH" secondAttribute="bottom" constant="7.5" id="ezr-cl-vrv"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="LmV-Zv-y7a" id="ZAJ-IX-dUh"/>
@@ -1170,14 +1149,26 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yqm-jb-6Vh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pgh-oo-YxH">
+                    <rect key="frame" x="0.0" y="0.0" width="61" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="Log Out">
+                        <color key="titleColor" systemColor="systemPinkColor"/>
+                    </state>
+                    <connections>
+                        <action selector="logout:" destination="LmV-Zv-y7a" eventType="touchUpInside" id="Inb-J0-L5I"/>
+                    </connections>
+                </button>
                 <exit id="ZzV-Le-oTd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2335" y="821"/>
+            <point key="canvasLocation" x="2334.7826086956525" y="820.98214285714278"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="tQn-eN-ejd"/>
         <segue reference="cpq-ah-2uH"/>
-        <segue reference="ugP-aC-NdW"/>
+        <segue reference="QH3-9w-5Mn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemOrangeColor"/>
     <resources>
@@ -1200,6 +1191,9 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

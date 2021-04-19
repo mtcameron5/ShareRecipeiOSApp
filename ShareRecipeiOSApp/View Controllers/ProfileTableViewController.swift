@@ -10,6 +10,24 @@ import UIKit
 class ProfileTableViewController: UITableViewController {
 
     // MARK: Properties
+    var authToken = Auth().token {
+        didSet {
+            if let authToken = authToken {
+                DispatchQueue.main.async {
+                    self.userRequest.getUser(tokenID: authToken) { [weak self] result in
+                        switch result {
+                        case .failure:
+                            break
+                            
+                        case .success(let foundUser):
+                            self?.user = foundUser
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     var user: User? {
         didSet {
             loadUserRecipes()
@@ -23,27 +41,19 @@ class ProfileTableViewController: UITableViewController {
     var followedUsers: [User] = []
     let userRequest = UserRequest()
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "RecipeCell")
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UsersCell")
         navigationItem.hidesBackButton = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        if let authToken = Auth().token {
-            userRequest.getUser(tokenID: authToken) { [weak self] result in
-                switch result {
-                case .failure:
-                    let message = "You must log in."
-                    ErrorPresenter.showError(message: message, on: self) { _ in 
-                        self?.navigationController?.popToRootViewController(animated: true)
-                    }
-                    
-                case .success(let foundUser):
-                    self?.user = foundUser
-                }
-            }
-        }
+
     }
     
     func loadUserRecipes() {
@@ -63,7 +73,8 @@ class ProfileTableViewController: UITableViewController {
         UserRequest().getCreatedRecipes(userID: (user!.id!)) { [weak self] result in
             switch result {
             case .failure:
-                print("Unable to get recipes user created or user has not created any")
+                break
+//                print("Unable to get recipes user created or user has not created any")
             case .success(let recipes):
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
@@ -76,7 +87,7 @@ class ProfileTableViewController: UITableViewController {
         UserRequest().getStartedRecipes(userID: (user!.id!)) { [weak self] result in
             switch result {
             case .failure:
-                print("Unable to get recipes user created or user has not created any")
+                break
             case .success(let recipes):
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
@@ -89,7 +100,8 @@ class ProfileTableViewController: UITableViewController {
         UserRequest().getFinishedRecipes(userID: (user!.id!)) { [weak self] result in
             switch result {
             case .failure:
-                print("Unable to get recipes user created or user has not created any")
+                break
+//                print("Unable to get recipes user created or user has not created any")
             case .success(let recipes):
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
@@ -102,7 +114,8 @@ class ProfileTableViewController: UITableViewController {
         UserRequest().getFollowedUsers(userID: (user!.id!)) { [weak self] result in
             switch result {
             case .failure:
-                print("Unable to get followed users.")
+                break
+//                print("Unable to get followed users.")
             case .success(let users):
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
@@ -142,12 +155,13 @@ class ProfileTableViewController: UITableViewController {
     @IBAction func logout(_ sender: Any) {
         Auth().logout()
         self.navigationController?.popToRootViewController(animated: true)
+        self.tabBarController?.tabBar.items?[3].title = "Log in"
     }
     
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 6
+        return 5
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -230,6 +244,4 @@ class ProfileTableViewController: UITableViewController {
             print(indexPath)
         }
     }
-
-
 }

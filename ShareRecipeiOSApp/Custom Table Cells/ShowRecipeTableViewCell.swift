@@ -31,8 +31,7 @@ class ShowRecipeTableViewCell: UITableViewCell {
     // MARK: IBActions
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(.success)
+
         
 //        let impactMedium = UIImpactFeedbackGenerator(style: .medium)
 //        impactMedium.impactOccurred()

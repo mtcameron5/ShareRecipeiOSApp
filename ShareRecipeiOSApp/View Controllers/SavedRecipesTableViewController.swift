@@ -18,6 +18,7 @@ class SavedRecipesTableViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var notLoggedInTextView: UITextView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var noSavesYetLabel: UILabel!
     var savedRecipes: [Recipe] = []
     
     override func viewDidLoad() {
@@ -32,35 +33,43 @@ class SavedRecipesTableViewController: UIViewController, UITableViewDelegate, UI
         loginButton.tintColor = .white
     }
     
-    // MARK: IBActions
+
     
-    @IBAction func loginPressed(_ sender: Any) {
-//        let loginTableVC = LoginTableViewController()
-//        present(LoginTableViewController(), animated: true, completion: nil)
-    }
-    
-    
+    // MARK: View-Lifecycle
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.popToRootViewController(animated: false)
+        self.tabBarController?.selectedIndex = 1
         let userRequest = UserRequest()
         if let authToken = Auth().token {
+            self.loginButton.isHidden = true
             self.notLoggedInTextView.text = ""
             userRequest.getUser(tokenID: authToken) { [weak self] result in
                 switch result {
                 case .failure:
-                    let message = "You must log in."
-                    ErrorPresenter.showError(message: message, on: self) { _ in
-                        self?.navigationController?.popToRootViewController(animated: true)
+                    DispatchQueue.main.async {
+                        
+                        self?.loginButton.isHidden = false
                     }
-                    
                 case .success(let foundUser):
                     self?.user = foundUser
                 }
             }
         } else {
+            self.loginButton.isHidden = false
             self.notLoggedInTextView.text = "Start planning what you want to make next. As you search, tap the heart icon to save a recipe for later use. Login or create an account to do so."
             user = nil
         }
     }
+    
+    // MARK: IBActions
+    
+    @IBAction func loginPressed(_ sender: Any) {
+//        performSegue(withIdentifier: "SavedRecipesToLoginScreen", sender: nil)
+        self.tabBarController?.selectedIndex = 3
+        print("segue performed")
+    }
+    
+    // MARK: Load Data
     
     func loadSavedRecipes() {
         if let user = self.user {

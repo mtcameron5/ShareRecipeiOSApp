@@ -157,6 +157,8 @@ class RecipesTableViewController: BaseTableViewController {
                     case .success(let statusCode):
                         print(statusCode)
                         DispatchQueue.main.async {
+                            let generator = UINotificationFeedbackGenerator()
+                            generator.notificationOccurred(.success)
                             self.tableView.reloadData()
                         }
                     case .failure(let error):
@@ -169,6 +171,8 @@ class RecipesTableViewController: BaseTableViewController {
                     switch result {
                     case .success(_):
                         DispatchQueue.main.async {
+                            let generator = UINotificationFeedbackGenerator()
+                            generator.notificationOccurred(.success)
                             self.tableView.reloadData()
                         }
                     case .failure(let error):

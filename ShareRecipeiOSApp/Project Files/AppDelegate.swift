@@ -19,7 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         let tabBarController = self.window?.rootViewController as! UITabBarController   
         // User is logged in, adjust tabBar.item[2] accordingly with profile VC
+        print(Auth().token)
         if Auth().token != nil {
+    
             tabBarController.tabBar.items?[3].title = "Profile"
             let profileTableVC = storyboard.instantiateViewController(withIdentifier: "ProfileTableViewController") as! UITableViewController
             let navigationController = tabBarController.viewControllers?[3] as! UINavigationController

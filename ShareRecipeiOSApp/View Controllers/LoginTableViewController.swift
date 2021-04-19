@@ -19,14 +19,6 @@ class LoginTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-//        if Auth().token != nil {
-//            self.view.isHidden = true
-//            
-//            performSegue(withIdentifier: "ShowUserProfileSegue", sender: nil)
-////            self.navigationController?.pushViewController(ProfileTableViewController(), animated: false)
-//        }
-        
     }
     
     // MARK: IBActions
@@ -54,7 +46,7 @@ class LoginTableViewController: UITableViewController {
                     self.performSegue(withIdentifier: "ShowUserProfileSegue", sender: nil)
                     
                     // Change tab bar title
-                    self.tabBarController?.tabBar.items?[2].title = "Profile"
+                    self.tabBarController?.tabBar.items?[3].title = "Profile"
                     
                 }
             case .failure:
