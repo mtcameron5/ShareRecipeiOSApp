@@ -43,6 +43,9 @@ class LoginTableViewController: UITableViewController {
             switch result {
             case .success:
                 DispatchQueue.main.async {
+                    let profileVC = ProfileTableViewController()
+                    profileVC.authToken = Auth().token
+    
                     self.performSegue(withIdentifier: "ShowUserProfileSegue", sender: nil)
                     
                     // Change tab bar title

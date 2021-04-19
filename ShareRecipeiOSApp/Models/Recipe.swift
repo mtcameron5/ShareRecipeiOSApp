@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-final class Recipe: Codable {
+@objc final class Recipe: NSObject, Codable {
     var id: UUID?
     var user: RecipeUser
     var name: String

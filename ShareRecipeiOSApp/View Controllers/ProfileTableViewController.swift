@@ -10,7 +10,7 @@ import UIKit
 class ProfileTableViewController: UITableViewController {
 
     // MARK: Properties
-    var authToken = Auth().token {
+    var authToken: String? {
         didSet {
             if let authToken = authToken {
                 DispatchQueue.main.async {
@@ -21,6 +21,7 @@ class ProfileTableViewController: UITableViewController {
                             
                         case .success(let foundUser):
                             self?.user = foundUser
+                            print("Set User")
                         }
                     }
                 }
@@ -33,10 +34,14 @@ class ProfileTableViewController: UITableViewController {
             loadUserRecipes()
         }
     }
-    
+    var savedRecipeData: LoadTableViewCellData?
     var startedRecipes: [Recipe] = []
     var finishedRecipes: [Recipe] = []
-    var savedRecipes: [Recipe] = []
+    var savedRecipes: [Recipe] = [] {
+        didSet {
+            savedRecipeData = LoadTableViewCellData(recipes: savedRecipes, user: user, tableView: tableView)
+        }
+    }
     var createdRecipes: [Recipe] = []
     var followedUsers: [User] = []
     let userRequest = UserRequest()
@@ -48,12 +53,18 @@ class ProfileTableViewController: UITableViewController {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "RecipeCell")
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UsersCell")
         navigationItem.hidesBackButton = true
+        
+        let cellNib = UINib(nibName: "ShowRecipeTableViewCell", bundle: nil)
+        self.tableView.register(cellNib, forCellReuseIdentifier: "ShowRecipeTableViewCell")
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        authToken = Auth().token
         
-
+        savedRecipeData = LoadTableViewCellData(recipes: savedRecipes, user: user, tableView: tableView)
     }
     
     func loadUserRecipes() {
@@ -193,9 +204,13 @@ class ProfileTableViewController: UITableViewController {
             usedRecipeCell.textLabel?.text = finishedRecipes[indexPath.row].name
             return usedRecipeCell
         case 2:
-            let savedRecipeCell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath)
-            savedRecipeCell.textLabel?.text = savedRecipes[indexPath.row].name
-            return savedRecipeCell
+            if let savedRecipeData = savedRecipeData {
+                let savedRecipeCell = savedRecipeData.loadRecipeCell(cellForRowAt: indexPath)
+                return savedRecipeCell
+            } else {
+                return UITableViewCell()
+            }
+ 
         case 3:
             let createdRecipeCell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath)
             createdRecipeCell.textLabel?.text = createdRecipes[indexPath.row].name
@@ -204,7 +219,6 @@ class ProfileTableViewController: UITableViewController {
             let usersCell = tableView.dequeueReusableCell(withIdentifier: "UsersCell", for: indexPath)
             usersCell.textLabel?.text = followedUsers[indexPath.row].name
             usersCell.detailTextLabel?.text = followedUsers[indexPath.row].username
-//            print(usersCell.detailTextLabel?.text)
             return usersCell
         default:
             return super.tableView(tableView, cellForRowAt: indexPath)
@@ -221,14 +235,22 @@ class ProfileTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 2 || indexPath.section == 3 || indexPath.section == 1 || indexPath.section == 0 {
+        if indexPath.section == 3 || indexPath.section == 1 || indexPath.section == 0 {
             return 44
+        } else if indexPath.section == 2 {
+            return 219
         } else {
             return super.tableView(tableView, heightForRowAt: indexPath)
         }
     }
     
-
+//    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if indexPath.section == 2 {
+//            return 125
+//        } else {
+//            return 44
+//        }
+//    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.section)
@@ -244,4 +266,6 @@ class ProfileTableViewController: UITableViewController {
             print(indexPath)
         }
     }
+    
+
 }

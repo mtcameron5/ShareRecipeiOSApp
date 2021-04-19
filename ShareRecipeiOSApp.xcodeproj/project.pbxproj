@@ -17,6 +17,7 @@
 		B122B654261F531700161985 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122B653261F531700161985 /* ProfileTableViewController.swift */; };
 		B122B657261F578D00161985 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122B656261F578D00161985 /* UserRequest.swift */; };
 		B16EF4282608E15F00DC285E /* CreateRecipeInstructionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16EF4272608E15F00DC285E /* CreateRecipeInstructionsTableViewController.swift */; };
+		B1770476262E247B00A26639 /* LoadTableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1770475262E247B00A26639 /* LoadTableViewCellData.swift */; };
 		B177A7032607326100581013 /* CreateRecipeIngredientsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177A7022607326100581013 /* CreateRecipeIngredientsListTableViewController.swift */; };
 		B177A70B2607490B00581013 /* GenericTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177A7092607490B00581013 /* GenericTableViewCell.swift */; };
 		B177A70C2607490B00581013 /* GenericTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B177A70A2607490B00581013 /* GenericTableViewCell.xib */; };
@@ -59,6 +60,7 @@
 		B122B653261F531700161985 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		B122B656261F578D00161985 /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		B16EF4272608E15F00DC285E /* CreateRecipeInstructionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeInstructionsTableViewController.swift; sourceTree = "<group>"; };
+		B1770475262E247B00A26639 /* LoadTableViewCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadTableViewCellData.swift; sourceTree = "<group>"; };
 		B177A7022607326100581013 /* CreateRecipeIngredientsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeIngredientsListTableViewController.swift; sourceTree = "<group>"; };
 		B177A7092607490B00581013 /* GenericTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewCell.swift; sourceTree = "<group>"; };
 		B177A70A2607490B00581013 /* GenericTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenericTableViewCell.xib; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				B122B656261F578D00161985 /* UserRequest.swift */,
 				B122B6372611536C00161985 /* Auth.swift */,
 				B122B6432612388B00161985 /* Auth+Keychain.swift */,
+				B1770475262E247B00A26639 /* LoadTableViewCellData.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				B17CF32A26017172002F934C /* RecipesTableViewController.swift in Sources */,
 				B122B63E261172A500161985 /* CreateUserData.swift in Sources */,
 				B1F459D72601E0FE00D269CC /* CreateRecipeTableViewController.swift in Sources */,
+				B1770476262E247B00A26639 /* LoadTableViewCellData.swift in Sources */,
 				B177A7032607326100581013 /* CreateRecipeIngredientsListTableViewController.swift in Sources */,
 				B1F459D22601BD9700D269CC /* CreateUserTableViewController.swift in Sources */,
 				B177A71D2607A27B00581013 /* TextFieldDelegate.swift in Sources */,

@@ -1,92 +1,34 @@
 //
-//  RecipesTableViewController.swift
+//  LoadTableViewCellData.swift
 //  ShareRecipeiOSApp
 //
-//  Created by Cameron Augustine on 3/16/21.
+//  Created by Cameron Augustine on 4/19/21.
 //
 
+import Foundation
 import UIKit
 
-class RecipesTableViewController: BaseTableViewController {
-    
-    // MARK: - Properties
-    var recipes: [Recipe] = []
-    var recipeLikes: Int = 0
-    var recipesRequest = ResourceRequest<Recipe>(resourcePath: "recipes")
-    var user: User?
-    let userRequest = UserRequest()
+@objc class LoadTableViewCellData: NSObject {
     let heartFillImage = UIImage(systemName: "heart.fill")
     let heartEmptyImage = UIImage(systemName: "heart")
     
+    let recipes: [Recipe]
+    let user: User?
+    let tableView: UITableView
     
-    // MARK: - View Life Cycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    init(recipes: [Recipe], user: User?, tableView: UITableView) {
+        self.recipes = recipes
+        self.user = user
+        self.tableView = tableView
         let cellNib = UINib(nibName: "ShowRecipeTableViewCell", bundle: nil)
-        tableView.register(cellNib, forCellReuseIdentifier: "ShowRecipeTableViewCell")
+        self.tableView.register(cellNib, forCellReuseIdentifier: "ShowRecipeTableViewCell")
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        refresh(nil)
-        
-        if let authToken = Auth().token {
-            userRequest.getUser(tokenID: authToken) { [weak self] result in
-                switch result {
-                case .failure:
-                    print("need to make the save buttons disabled")
-                    
-                case .success(let foundUser):
-                    self?.user = foundUser
-                }
-            }
-        } else {
-            self.user = nil
-        }
-    }
-    
-    // MARK: - Navigation
-    @IBSegueAction func makeRecipeDetailTableViewController(_ coder: NSCoder) -> RecipesDetailTableViewController? {
-        guard let indexPath = tableView.indexPathForSelectedRow else {
-            return nil
-        }
-        let recipe = recipes[indexPath.row]
-        return RecipesDetailTableViewController(coder: coder, recipe: recipe)
-    }
-    
-    // MARK: - IBActions
-    @IBAction func refresh(_ sender: UIRefreshControl?) {
-        recipesRequest.getAll { [weak self] result in
-            
-            DispatchQueue.main.async {
-                sender?.endRefreshing()
-            }
-            
-            switch result {
-            case .failure:
-                ErrorPresenter.showError(message: "There was a problem getting the recipes", on: self)
-            case .success(let recipes):
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    self.recipes = recipes
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
-    
-    // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipes.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+    func loadRecipeCell(cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShowRecipeTableViewCell", for: indexPath) as! ShowRecipeTableViewCell
         let recipe = recipes[indexPath.row]
         cell.recipe = recipe
         let recipeRequest = RecipeRequest(recipeID: recipe.id!)
-        
         // Add tag and target to button to identify which recipe button is being selected
         cell.saveButton.tag = indexPath.row
         cell.saveButton.addTarget(self, action: #selector(saveButtonClicked(sender:)), for: .touchUpInside)
@@ -172,34 +114,5 @@ class RecipesTableViewController: BaseTableViewController {
             }
         }
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let recipe = recipes[indexPath.row]
-        performSegue(withIdentifier: "RecipesToRecipeDetail", sender: nil)
-    }
-    
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        let recipe = recipes[indexPath.row]
-//        if let recipeID = recipe.id {
-//            recipesRequest.delete(id: recipeID)
-//        }
-//        recipes.remove(at: indexPath.row)
-//        tableView.deleteRows(at: [indexPath], with: .fade)
-//    }
 
-    
-    
-    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 125
-    }
-
-}
-
-func doesUserLikeRecipe(recipes: [Recipe], targetRecipe: Recipe) -> Bool {
-    for recipe in recipes {
-        if recipe.id == targetRecipe.id {
-            return true
-        }
-    }
-    return false
 }

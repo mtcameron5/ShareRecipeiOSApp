@@ -99,7 +99,6 @@ class SavedRecipesTableViewController: UIViewController, UITableViewDelegate, UI
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(savedRecipes.count)
         return savedRecipes.count
     }
     
